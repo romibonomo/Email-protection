@@ -1,1 +1,505 @@
 # Email-protection
+
+<mxfile host="app.diagrams.net" version="21.0.0" type="device">
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 1 — OUTBOUND EMAIL: How SPF, DKIM, DMARC are SET UP
+       Actors: Sending Org → DNS → Sending Mail Server → Internet
+  ════════════════════════════════════════════════════ -->
+  <diagram id="outbound" name="Outbound — Setup &amp; Signing">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ── PAGE TITLE ── -->
+        <mxCell id="pg1_title" value="Outbound Email — How SPF, DKIM &amp; DMARC Are Configured &amp; Applied" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="pg1_sub" value="The sending organization publishes DNS records and signs outgoing messages. The recipient's server performs the checks." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="52" width="900" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             SWIM LANE BACKGROUNDS
+        ════════════════════════════════════════ -->
+        <!-- Lane 1: Sending Org / DNS Admin -->
+        <mxCell id="lane1_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0f8ff;strokeColor=#b0cfe8;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="300" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="lane1_lbl" value="&lt;b&gt;SENDING ORG&lt;/b&gt;&lt;br&gt;DNS Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#0073a8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 2: Public DNS -->
+        <mxCell id="lane2_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fff4;strokeColor=#a8d5b5;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="340" y="90" width="240" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2_lbl" value="&lt;b&gt;PUBLIC DNS&lt;/b&gt;&lt;br&gt;(example.com zone)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#27ae60;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="90" width="240" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 3: Sending Mail Server -->
+        <mxCell id="lane3_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffbf0;strokeColor=#e8d5a0;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="580" y="90" width="260" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3_lbl" value="&lt;b&gt;SENDING MAIL SERVER&lt;/b&gt;&lt;br&gt;(M365 / Exchange)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="90" width="260" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 4: Internet / Recipient -->
+        <mxCell id="lane4_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#e0b0b0;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="840" y="90" width="260" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4_lbl" value="&lt;b&gt;RECIPIENT SERVER&lt;/b&gt;&lt;br&gt;(Checks performed here)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#c0392b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="90" width="260" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             SPF SECTION
+        ════════════════════════════════════════ -->
+        <mxCell id="spf_hdr" value="SPF — Sender Policy Framework" style="text;html=1;strokeColor=none;fillColor=#0073a8;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="1060" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- SPF Step 1: DNS Admin publishes SPF record -->
+        <mxCell id="spf1_box" value="&lt;b&gt;1. Publish SPF Record&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Admin creates TXT record&lt;br&gt;in DNS for the domain&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="172" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- SPF DNS Record -->
+        <mxCell id="spf_dns" value="&lt;b&gt;DNS TXT Record&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;v=spf1 include:spf.protection.outlook.com ~all&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:9px;color:#555'&gt;Lists all IPs/servers authorized&lt;br&gt;to send mail for this domain&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="355" y="162" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: DNS Admin → DNS -->
+        <mxCell id="spf_arr1" value="publishes" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;fontColor=#0073a8;fontSize=10;fontStyle=2;" edge="1" parent="1" source="spf1_box" target="spf_dns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- SPF: At send time — server sends from listed IP -->
+        <mxCell id="spf2_box" value="&lt;b&gt;2. Email Sent&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Mail server sends email&lt;br&gt;from an authorized IP&lt;br&gt;(listed in SPF record)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="162" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- SPF: Recipient checks -->
+        <mxCell id="spf3_box" value="&lt;b&gt;3. Recipient Checks SPF&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Looks up DNS TXT record&lt;br&gt;for the envelope sender domain.&lt;br&gt;Compares sending IP against&lt;br&gt;authorized list.&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#27ae60'&gt;✔ PASS: IP is listed&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#c0392b'&gt;✖ FAIL: IP not listed&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="855" y="155" width="210" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Mail server → Recipient -->
+        <mxCell id="spf_arr2" value="sends email" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;fontColor=#e67e22;fontSize=10;fontStyle=2;" edge="1" parent="1" source="spf2_box" target="spf3_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Recipient → DNS (lookup) -->
+        <mxCell id="spf_arr3" value="DNS lookup&lt;br&gt;(SPF record)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;fontColor=#27ae60;fontSize=10;fontStyle=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="spf3_box" target="spf_dns">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="212" />
+              <mxPoint x="460" y="212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SPF Note -->
+        <mxCell id="spf_note" value="⚠ SPF checks the envelope FROM (SMTP MAIL FROM), not the visible From: header.&lt;br&gt;This is why SPF alone does not prevent display-name spoofing." style="text;html=1;strokeColor=#f0c080;fillColor=#fffbea;align=left;verticalAlign=middle;fontSize=10;fontColor=#7a5500;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="285" width="1060" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             DKIM SECTION
+        ════════════════════════════════════════ -->
+        <mxCell id="dkim_hdr" value="DKIM — DomainKeys Identified Mail" style="text;html=1;strokeColor=none;fillColor=#27ae60;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="328" width="1060" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- DKIM Step 1: Generate key pair -->
+        <mxCell id="dkim1_box" value="&lt;b&gt;1. Generate Key Pair&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Admin generates a&lt;br&gt;&lt;b&gt;private key&lt;/b&gt; (kept on mail server)&lt;br&gt;and a &lt;b&gt;public key&lt;/b&gt; (published to DNS)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="370" width="190" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- DKIM DNS Record -->
+        <mxCell id="dkim_dns" value="&lt;b&gt;DNS TXT Record&lt;/b&gt; (Public Key)&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;selector._domainkey.example.com&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;Contains the public key used&lt;br&gt;to verify signatures&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="355" y="365" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Admin → DNS (public key) -->
+        <mxCell id="dkim_arr1" value="publishes public key" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;fontColor=#0073a8;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dkim1_box" target="dkim_dns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- DKIM Step 2: Mail server signs -->
+        <mxCell id="dkim2_box" value="&lt;b&gt;2. Server Signs Outbound Email&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Mail server uses &lt;b&gt;private key&lt;/b&gt;&lt;br&gt;to create a hash of the message&lt;br&gt;headers + body.&lt;br&gt;Hash is added as a&lt;br&gt;&lt;b&gt;DKIM-Signature header&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="598" y="358" width="210" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Admin → Mail server (private key) -->
+        <mxCell id="dkim_arr_priv" value="installs private key" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7f8c8d;fontColor=#7f8c8d;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dkim1_box" target="dkim2_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="490" />
+              <mxPoint x="700" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DKIM Step 3: Recipient verifies -->
+        <mxCell id="dkim3_box" value="&lt;b&gt;3. Recipient Verifies Signature&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Fetches &lt;b&gt;public key&lt;/b&gt; from DNS.&lt;br&gt;Decrypts DKIM-Signature header.&lt;br&gt;Recalculates hash of message.&lt;br&gt;Compares: do hashes match?&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#27ae60'&gt;✔ PASS: Message unmodified&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#c0392b'&gt;✖ FAIL: Message tampered&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="853" y="352" width="215" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Mail server → Recipient -->
+        <mxCell id="dkim_arr2" value="email + DKIM-Signature header" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;fontColor=#e67e22;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dkim2_box" target="dkim3_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Recipient → DNS lookup -->
+        <mxCell id="dkim_arr3" value="fetch public key" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;fontColor=#27ae60;fontSize=10;fontStyle=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dkim3_box" target="dkim_dns">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="853" y="418" />
+              <mxPoint x="565" y="418" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DKIM Note -->
+        <mxCell id="dkim_note" value="✔ DKIM proves the message was not altered in transit and that the signing domain authorized it. It survives forwarding unlike SPF." style="text;html=1;strokeColor=#a8d5b5;fillColor=#e8f8ee;align=left;verticalAlign=middle;fontSize=10;fontColor=#1a5c30;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="498" width="1060" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             DMARC SECTION
+        ════════════════════════════════════════ -->
+        <mxCell id="dmarc_hdr" value="DMARC — Domain-based Message Authentication, Reporting &amp; Conformance" style="text;html=1;strokeColor=none;fillColor=#8e44ad;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="538" width="1060" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- DMARC Step 1: Publish policy -->
+        <mxCell id="dmarc1_box" value="&lt;b&gt;1. Publish DMARC Policy&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Admin publishes TXT record&lt;br&gt;defining what to do when&lt;br&gt;SPF or DKIM fails&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="578" width="185" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- DMARC DNS Record -->
+        <mxCell id="dmarc_dns" value="&lt;b&gt;DNS TXT Record&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;_dmarc.example.com&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;v=DMARC1; p=reject;&lt;br&gt;rua=mailto:dmarc@example.com&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:9px;color:#555'&gt;&lt;b&gt;p=none&lt;/b&gt; (monitor only)&lt;br&gt;&lt;b&gt;p=quarantine&lt;/b&gt; (send to spam)&lt;br&gt;&lt;b&gt;p=reject&lt;/b&gt; (block message)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="350" y="563" width="215" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Admin → DNS -->
+        <mxCell id="dmarc_arr1" value="publishes policy" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontColor=#8e44ad;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dmarc1_box" target="dmarc_dns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- DMARC: What it checks -->
+        <mxCell id="dmarc2_box" value="&lt;b&gt;2. DMARC Alignment Check&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;DMARC requires &lt;b&gt;alignment&lt;/b&gt;:&lt;br&gt;The domain in the visible &lt;b&gt;From: header&lt;/b&gt;&lt;br&gt;must match the domain that&lt;br&gt;&lt;b&gt;passed&lt;/b&gt; SPF or DKIM.&lt;br&gt;&lt;br&gt;This closes the gap where&lt;br&gt;SPF/DKIM pass but the&lt;br&gt;From: header is spoofed.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="595" y="558" width="210" height="135" as="geometry" />
+        </mxCell>
+
+        <!-- DMARC: Recipient action -->
+        <mxCell id="dmarc3_box" value="&lt;b&gt;3. Recipient Applies Policy&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Fetches _dmarc DNS record.&lt;br&gt;Checks if SPF or DKIM aligned.&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#27ae60'&gt;✔ ALIGNED: Deliver normally&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#e67e22'&gt;⚠ p=quarantine: Move to spam&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#c0392b'&gt;✖ p=reject: Block &amp; discard&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;Sends &lt;b&gt;aggregate reports&lt;/b&gt; back&lt;br&gt;to rua= address&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="853" y="553" width="215" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Alignment check → Recipient -->
+        <mxCell id="dmarc_arr2" value="result passed to" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontColor=#8e44ad;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dmarc2_box" target="dmarc3_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Recipient → DNS -->
+        <mxCell id="dmarc_arr3" value="fetch DMARC policy" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;fontColor=#27ae60;fontSize=10;fontStyle=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dmarc3_box" target="dmarc_dns">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="853" y="628" />
+              <mxPoint x="565" y="628" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DMARC Note -->
+        <mxCell id="dmarc_note" value="✔ DMARC is the policy layer that ties SPF and DKIM together. Without DMARC, a message can pass SPF and DKIM individually but still have a spoofed From: header. DMARC closes that gap." style="text;html=1;strokeColor=#c9a0dc;fillColor=#f5eaff;align=left;verticalAlign=middle;fontSize=10;fontColor=#4a235a;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="715" width="1060" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             REPORTING ARROW (Recipient back to Sender)
+        ════════════════════════════════════════ -->
+        <mxCell id="report_arr" value="Aggregate reports (rua=) sent periodically&lt;br&gt;showing pass/fail stats for your domain" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontColor=#8e44ad;fontSize=10;fontStyle=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="dmarc3_box" target="dmarc1_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="760" />
+              <mxPoint x="152" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE 2 — INBOUND EMAIL: Full check sequence
+       Recipient server receives email and runs checks
+  ════════════════════════════════════════════════════ -->
+  <diagram id="inbound" name="Inbound — Full Check Sequence">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ── PAGE TITLE ── -->
+        <mxCell id="pg2_title" value="Inbound Email — SPF, DKIM &amp; DMARC Check Sequence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="pg2_sub" value="When an email arrives, the receiving server runs three independent checks before deciding what to do with the message." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="52" width="1000" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             ACTORS
+        ════════════════════════════════════════ -->
+
+        <!-- Sending Server -->
+        <mxCell id="sender_box" value="&lt;b&gt;Sending Mail Server&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;sender@external.com&lt;br&gt;IP: 203.0.113.10&lt;/font&gt;" style="shape=mxgraph.cisco.servers.standard_server;html=1;pointerEvents=1;dashed=0;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sender_lbl" value="&lt;b&gt;Sending Server&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;sender@external.com&lt;br&gt;IP: 203.0.113.10&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Receiving Server -->
+        <mxCell id="recv_box" value="" style="shape=mxgraph.cisco.servers.standard_server;html=1;pointerEvents=1;dashed=0;fillColor=#fff0f0;strokeColor=#c0392b;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="recv_lbl" value="&lt;b&gt;Receiving Server&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;(M365 / EOP)&lt;br&gt;Runs all checks&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="310" y="170" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- DNS Server -->
+        <mxCell id="dns_box" value="" style="shape=mxgraph.cisco.servers.standard_server;html=1;pointerEvents=1;dashed=0;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dns_lbl" value="&lt;b&gt;Public DNS&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;external.com zone&lt;br&gt;(SPF, DKIM, DMARC records)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="170" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Inbox / Spam / Block -->
+        <mxCell id="inbox_box" value="📥 Inbox" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=13;fontStyle=1;fontColor=#1a5c30;" vertex="1" parent="1">
+          <mxGeometry x="980" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="spam_box" value="⚠ Junk / Spam" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;fontSize=13;fontStyle=1;fontColor=#7a4000;" vertex="1" parent="1">
+          <mxGeometry x="980" y="148" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="block_box" value="🚫 Blocked / Rejected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=12;fontStyle=1;fontColor=#7a0000;" vertex="1" parent="1">
+          <mxGeometry x="980" y="206" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Email arrow: Sender → Receiver -->
+        <mxCell id="email_arr" value="Inbound email arrives&lt;br&gt;&lt;font style='font-size:9px'&gt;(SMTP connection)&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;fontColor=#0073a8;fontSize=10;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sender_box" target="recv_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             CHECK 1: SPF
+        ════════════════════════════════════════ -->
+        <mxCell id="spf_chk_hdr" value="CHECK 1 — SPF" style="text;html=1;strokeColor=none;fillColor=#0073a8;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="1100" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spf_q1" value="&lt;b&gt;Q: Who actually sent this?&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Extract the envelope sender domain&lt;br&gt;from SMTP MAIL FROM:&lt;br&gt;&lt;font style='font-family:monospace'&gt;MAIL FROM: &amp;lt;sender@external.com&amp;gt;&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="278" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spf_q2" value="&lt;b&gt;DNS Lookup&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;TXT external.com&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Returns SPF record:&lt;br&gt;&lt;font style='font-family:monospace'&gt;v=spf1 ip4:203.0.113.0/24 ~all&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="340" y="278" width="230" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spf_q3" value="&lt;b&gt;Is sending IP (203.0.113.10)&lt;br&gt;in the SPF record?&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#27ae60'&gt;✔ YES → SPF PASS&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#c0392b'&gt;✖ NO → SPF FAIL / SOFTFAIL&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:9px;color:#888'&gt;(~all = softfail, -all = hardfail)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="660" y="272" width="220" height="92" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spf_lim" value="⚠ SPF Limitation: Checks envelope sender (MAIL FROM), NOT the visible From: header. Forwarded email often breaks SPF because the forwarding server's IP is not in the original SPF record." style="text;html=1;strokeColor=#f0c080;fillColor=#fffbea;align=left;verticalAlign=middle;fontSize=10;fontColor=#7a5500;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="378" width="1100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows SPF check -->
+        <mxCell id="spf_c1" value="extract envelope domain" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;fontColor=#0073a8;fontSize=9;fontStyle=2;" edge="1" parent="1" source="spf_q1" target="spf_q2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="spf_c2" value="compare sending IP" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;fontColor=#27ae60;fontSize=9;fontStyle=2;" edge="1" parent="1" source="spf_q2" target="spf_q3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             CHECK 2: DKIM
+        ════════════════════════════════════════ -->
+        <mxCell id="dkim_chk_hdr" value="CHECK 2 — DKIM" style="text;html=1;strokeColor=none;fillColor=#27ae60;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="1100" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dkim_c1" value="&lt;b&gt;1. Find DKIM-Signature Header&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;DKIM-Signature: v=1; a=rsa-sha256;&lt;br&gt;d=external.com; s=selector1;&lt;br&gt;h=from:to:subject:date;&lt;br&gt;bh=&amp;lt;body hash&amp;gt;; b=&amp;lt;signature&amp;gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="458" width="250" height="95" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dkim_c2" value="&lt;b&gt;2. Fetch Public Key from DNS&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;font-family:monospace'&gt;selector1._domainkey.external.com&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Returns public key (p=...)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="360" y="470" width="210" height="72" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dkim_c3" value="&lt;b&gt;3. Verify Signature&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Decrypt b= value using public key.&lt;br&gt;Recalculate hash of signed headers + body.&lt;br&gt;Compare against decrypted value.&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#27ae60'&gt;✔ Match → DKIM PASS&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#c0392b'&gt;✖ No match → DKIM FAIL&lt;br&gt;(message altered in transit)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="655" y="452" width="225" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dkim_lim" value="✔ DKIM survives forwarding. It validates message integrity and confirms the signing domain authorized the message. Does not protect the From: header alone." style="text;html=1;strokeColor=#a8d5b5;fillColor=#e8f8ee;align=left;verticalAlign=middle;fontSize=10;fontColor=#1a5c30;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="572" width="1100" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows DKIM check -->
+        <mxCell id="dkim_cc1" value="extract selector + domain" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;fontColor=#0073a8;fontSize=9;fontStyle=2;" edge="1" parent="1" source="dkim_c1" target="dkim_c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dkim_cc2" value="use key to verify" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;fontColor=#27ae60;fontSize=9;fontStyle=2;" edge="1" parent="1" source="dkim_c2" target="dkim_c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             CHECK 3: DMARC
+        ════════════════════════════════════════ -->
+        <mxCell id="dmarc_chk_hdr" value="CHECK 3 — DMARC (the policy layer)" style="text;html=1;strokeColor=none;fillColor=#8e44ad;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="612" width="1100" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dmarc_c1" value="&lt;b&gt;1. Check SPF Alignment&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Does the domain in the visible&lt;br&gt;&lt;b&gt;From: header&lt;/b&gt; match the domain&lt;br&gt;that passed SPF?&lt;br&gt;&lt;br&gt;&lt;font style='color:#27ae60'&gt;✔ Match → SPF Aligned&lt;/font&gt;&lt;br&gt;&lt;font style='color:#c0392b'&gt;✖ No match → Not aligned&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dmarc_c2" value="&lt;b&gt;2. Check DKIM Alignment&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Does the domain in the visible&lt;br&gt;&lt;b&gt;From: header&lt;/b&gt; match the&lt;br&gt;&lt;b&gt;d= domain&lt;/b&gt; in DKIM-Signature?&lt;br&gt;&lt;br&gt;&lt;font style='color:#27ae60'&gt;✔ Match → DKIM Aligned&lt;/font&gt;&lt;br&gt;&lt;font style='color:#c0392b'&gt;✖ No match → Not aligned&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="290" y="650" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dmarc_c3" value="&lt;b&gt;3. DMARC Decision&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;DMARC PASSES if:&lt;br&gt;&lt;b&gt;SPF aligned&lt;/b&gt; OR &lt;b&gt;DKIM aligned&lt;/b&gt;&lt;br&gt;(at least one must pass &amp; align)&lt;br&gt;&lt;br&gt;Then apply the policy:&lt;br&gt;&lt;font style='color:#555'&gt;&lt;b&gt;p=none&lt;/b&gt;: take no action, report only&lt;/font&gt;&lt;br&gt;&lt;font style='color:#e67e22'&gt;&lt;b&gt;p=quarantine&lt;/b&gt;: send to junk&lt;/font&gt;&lt;br&gt;&lt;font style='color:#c0392b'&gt;&lt;b&gt;p=reject&lt;/b&gt;: block the message&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="545" y="638" width="220" height="135" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dmarc_c4" value="&lt;b&gt;4. Final Disposition&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style='font-size:11px;color:#27ae60'&gt;✔ DMARC PASS&lt;br&gt;→ Deliver to Inbox&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style='font-size:11px;color:#e67e22'&gt;⚠ p=quarantine&lt;br&gt;→ Junk / Spam folder&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style='font-size:11px;color:#c0392b'&gt;✖ p=reject&lt;br&gt;→ Blocked / Bounced&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="840" y="638" width="170" height="165" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows DMARC -->
+        <mxCell id="dmarc_dc1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontSize=9;" edge="1" parent="1" source="dmarc_c1" target="dmarc_c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dmarc_dc2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontSize=9;" edge="1" parent="1" source="dmarc_c2" target="dmarc_c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dmarc_dc3" value="apply policy" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;fontColor=#8e44ad;fontSize=10;fontStyle=2;" edge="1" parent="1" source="dmarc_c3" target="dmarc_c4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Final outcome arrows to inbox/spam/block -->
+        <mxCell id="out_inbox" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;" edge="1" parent="1" source="dmarc_c4" target="inbox_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="655" />
+              <mxPoint x="1110" y="655" />
+              <mxPoint x="1110" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="out_spam" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=2;" edge="1" parent="1" source="dmarc_c4" target="spam_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="725" />
+              <mxPoint x="1120" y="725" />
+              <mxPoint x="1120" y="168" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="out_block" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" edge="1" parent="1" source="dmarc_c4" target="block_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="790" />
+              <mxPoint x="1130" y="790" />
+              <mxPoint x="1130" y="226" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             SUMMARY TABLE
+        ════════════════════════════════════════ -->
+        <mxCell id="sum_hdr" value="Summary — What Each Protocol Checks" style="text;html=1;strokeColor=none;fillColor=#2c3e50;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="836" width="1100" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sum_h1" value="Protocol" style="text;html=1;strokeColor=#cccccc;fillColor=#34495e;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="862" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_h2" value="What it checks" style="text;html=1;strokeColor=#cccccc;fillColor=#34495e;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="862" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_h3" value="What it proves" style="text;html=1;strokeColor=#cccccc;fillColor=#34495e;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="862" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_h4" value="Key Limitation" style="text;html=1;strokeColor=#cccccc;fillColor=#34495e;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="862" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_h5" value="Survives Forwarding?" style="text;html=1;strokeColor=#cccccc;fillColor=#34495e;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="850" y="862" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- SPF row -->
+        <mxCell id="sum_r1c1" value="SPF" style="text;html=1;strokeColor=#e0e0e0;fillColor=#dbeeff;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#0073a8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="892" width="120" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r1c2" value="Sending IP vs. authorized IPs in DNS (envelope MAIL FROM domain)" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5faff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="892" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r1c3" value="The sending server is authorized by the domain owner" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5faff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="892" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r1c4" value="Checks envelope sender, NOT the From: header. Breaks on forwarding." style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff9f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;fontColor=#7a4000;" vertex="1" parent="1">
+          <mxGeometry x="600" y="892" width="250" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r1c5" value="✖ No" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=12;fontColor=#c0392b;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="850" y="892" width="150" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- DKIM row -->
+        <mxCell id="sum_r2c1" value="DKIM" style="text;html=1;strokeColor=#e0e0e0;fillColor=#e8f8ee;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="928" width="120" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r2c2" value="Cryptographic signature in header vs. public key in DNS" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5fff8;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="928" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r2c3" value="Message was not altered in transit; signing domain vouches for it" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5fff8;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="928" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r2c4" value="Does not protect the From: header alone without DMARC alignment" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5fff8;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;fontColor=#1a5c30;" vertex="1" parent="1">
+          <mxGeometry x="600" y="928" width="250" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r2c5" value="✔ Yes" style="text;html=1;strokeColor=#e0e0e0;fillColor=#e8f8ee;align=center;verticalAlign=middle;fontSize=12;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="850" y="928" width="150" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- DMARC row -->
+        <mxCell id="sum_r3c1" value="DMARC" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5eaff;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#8e44ad;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="964" width="120" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r3c2" value="Alignment: From: header domain matches SPF or DKIM domain" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fdf5ff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="964" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r3c3" value="The visible From: domain is legitimate; ties SPF and DKIM together" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fdf5ff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="964" width="220" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r3c4" value="Requires at least SPF or DKIM to be configured and aligned first" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fdf5ff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=6;rounded=0;fontColor=#4a235a;" vertex="1" parent="1">
+          <mxGeometry x="600" y="964" width="250" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="sum_r3c5" value="✔ Yes (via DKIM)" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5eaff;align=center;verticalAlign=middle;fontSize=11;fontColor=#8e44ad;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="850" y="964" width="150" height="36" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
