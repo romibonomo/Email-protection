@@ -1,0 +1,362 @@
+<mxfile host="app.diagrams.net" modified="2025-04-18T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+
+  <diagram id="page1" name="1 — Layered Security Stack">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Email Security — Layered Defence Stack" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="80" y="30" width="700" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Three distinct layers — each covering different threat categories and timing" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="80" y="64" width="700" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdr_layer" value="Layer" style="text;html=1;strokeColor=none;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_tool" value="Tool / Component" style="text;html=1;strokeColor=none;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_role" value="Primary Role" style="text;html=1;strokeColor=none;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_caps" value="Key Capabilities" style="text;html=1;strokeColor=none;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_timing" value="Timing" style="text;html=1;strokeColor=none;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="740" y="100" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0073a8;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="6" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_label" value="&lt;b&gt;Layer 1&lt;/b&gt;&lt;br&gt;&lt;font color='#0073a8'&gt;EOP&lt;/font&gt;" style="text;html=1;strokeColor=#d0e8f5;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="86" y="130" width="114" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_tool" value="&lt;b&gt;Exchange Online Protection&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Included with M365&lt;/font&gt;" style="text;html=1;strokeColor=#d0e8f5;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="130" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_role" value="Baseline Filtering&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;First pass — catches&lt;br&gt;the obvious&lt;/font&gt;" style="text;html=1;strokeColor=#d0e8f5;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="130" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_caps" value="• Spam &amp; bulk filtering&lt;br&gt;• Known malware signatures&lt;br&gt;• SPF / DKIM / DMARC&lt;br&gt;• IP reputation checks" style="text;html=1;strokeColor=#d0e8f5;fillColor=#f0f8ff;align=left;verticalAlign=middle;fontSize=10;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="130" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_timing" value="&lt;font color='#0073a8'&gt;&lt;b&gt;Pre-Delivery&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=#0073a8;fillColor=#e6f3fa;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="164" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l2_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27ae60;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="6" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_label" value="&lt;b&gt;Layer 2&lt;/b&gt;&lt;br&gt;&lt;font color='#27ae60'&gt;Defender&lt;/font&gt;" style="text;html=1;strokeColor=#c3e6cb;fillColor=#f0fff4;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="86" y="250" width="114" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_tool" value="&lt;b&gt;Microsoft Defender&lt;br&gt;for Office 365&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Plan 2&lt;/font&gt;" style="text;html=1;strokeColor=#c3e6cb;fillColor=#f0fff4;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="250" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_role" value="Advanced Threat Detection&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Global intelligence —&lt;br&gt;scans for known &amp; novel threats&lt;/font&gt;" style="text;html=1;strokeColor=#c3e6cb;fillColor=#f0fff4;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="250" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_caps" value="• Safe Links / Safe Attachments&lt;br&gt;• Zero-day sandbox detonation&lt;br&gt;• BEC signals (global patterns)&lt;br&gt;• Anomaly &amp; impersonation alerts&lt;br&gt;• Threat Explorer / AIR" style="text;html=1;strokeColor=#c3e6cb;fillColor=#f0fff4;align=left;verticalAlign=middle;fontSize=10;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="250" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_timing" value="&lt;font color='#27ae60'&gt;&lt;b&gt;At-Delivery&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=#27ae60;fillColor=#e9f7ef;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="299" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l3_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e67e22;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="6" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_label" value="&lt;b&gt;Layer 3&lt;/b&gt;&lt;br&gt;&lt;font color='#e67e22'&gt;ICES&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:9px' color='#e67e22'&gt;⚠ Expiring 2027&lt;/font&gt;" style="text;html=1;strokeColor=#f5cba7;fillColor=#fef9f0;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="86" y="390" width="114" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_tool" value="&lt;b&gt;Integrated Cloud&lt;br&gt;Email Security&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Fortra / Agari&lt;br&gt;API-based&lt;/font&gt;" style="text;html=1;strokeColor=#f5cba7;fillColor=#fef9f0;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="390" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_role" value="Identity &amp; Behavioural Analysis&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Org-specific intelligence —&lt;br&gt;knows our people and&lt;br&gt;acts after delivery&lt;/font&gt;" style="text;html=1;strokeColor=#f5cba7;fillColor=#fef9f0;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="390" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_caps" value="• Per-user behavioural profiling&lt;br&gt;• Identity-based sender verification&lt;br&gt;• Vendor / supply chain impersonation&lt;br&gt;• Automated post-delivery retraction&lt;br&gt;• Outbound domain abuse monitoring&lt;br&gt;• External threat intel correlation" style="text;html=1;strokeColor=#f5cba7;fillColor=#fef9f0;align=left;verticalAlign=middle;fontSize=10;rounded=1;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="390" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_timing" value="&lt;font color='#e67e22'&gt;&lt;b&gt;Post-Delivery&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=#e67e22;fillColor=#fef5eb;align=center;verticalAlign=middle;fontSize=11;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="449" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="analogy_hdr" value="Analogy" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#666666;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="558" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="analogy_1" value="&lt;i&gt;&quot;Border control — checks credentials at the door&quot;&lt;/i&gt;" style="text;html=1;strokeColor=#d0e8f5;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=10;fontColor=#0073a8;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="558" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="analogy_2" value="&lt;i&gt;&quot;Airport security — scans for threats in baggage&quot;&lt;/i&gt;" style="text;html=1;strokeColor=#c3e6cb;fillColor=#f0fff4;align=center;verticalAlign=middle;fontSize=10;fontColor=#27ae60;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="558" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="analogy_3" value="&lt;i&gt;&quot;Investigator inside — knows your people and can recall a threat after it has been let in&quot;&lt;/i&gt;" style="text;html=1;strokeColor=#f5cba7;fillColor=#fef9f0;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="558" width="330" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="did_label" value="Defence-in-Depth" style="text;html=1;strokeColor=#999999;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#444444;rotation=-90;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="886" y="290" width="150" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="footnote" value="Note: Layers are complementary, not redundant. Each covers distinct threat categories and timing. Removing any layer creates a coverage gap." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="626" width="760" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page2" name="2 — Capability Coverage Matrix">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t1" value="Capability Coverage by Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="60" y="26" width="860" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="Which layer covers which capability — and where the gaps are if ICES is not renewed" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="860" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="h_cap" value="Capability" style="text;html=1;strokeColor=#cccccc;fillColor=#2c3e50;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="96" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="h_eop" value="EOP" style="text;html=1;strokeColor=#cccccc;fillColor=#0073a8;align=center;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="96" width="140" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="h_def" value="Defender P2" style="text;html=1;strokeColor=#cccccc;fillColor=#27ae60;align=center;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="96" width="140" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="h_ices" value="ICES" style="text;html=1;strokeColor=#cccccc;fillColor=#e67e22;align=center;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#ffffff;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="96" width="140" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1" value="INBOUND — BASELINE" style="text;html=1;strokeColor=#cccccc;fillColor=#ecf0f1;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;fontColor=#7f8c8d;spacingLeft=8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="132" width="760" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r1c" value="Spam &amp; bulk email filtering" style="text;html=1;strokeColor=#e0e0e0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="156" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r1e" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#0073a8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="156" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r1d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="156" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r1i" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fafafa;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="156" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r2c" value="Known malware / signature-based detection" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="188" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r2e" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#0073a8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="188" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r2d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="188" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r2i" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="188" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r3c" value="SPF / DKIM / DMARC enforcement" style="text;html=1;strokeColor=#e0e0e0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r3e" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#0073a8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r3d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="220" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r3i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="220" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2" value="INBOUND — ADVANCED THREAT DETECTION" style="text;html=1;strokeColor=#cccccc;fillColor=#ecf0f1;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;fontColor=#7f8c8d;spacingLeft=8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="252" width="760" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r4c" value="Zero-day / unknown malware sandboxing" style="text;html=1;strokeColor=#e0e0e0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="276" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r4e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fafafa;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="276" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r4d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="276" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r4i" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fafafa;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="276" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r5c" value="Malicious URL detonation (Safe Links)" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="308" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r5e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="308" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r5d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f0fff4;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="308" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r5i" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="308" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r6c" value="BEC detection using global threat signals" style="text;html=1;strokeColor=#e0e0e0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r6e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fafafa;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="340" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r6d" value="Partial" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fffbea;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="340" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r6i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="340" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3" value="IDENTITY &amp; BEHAVIOURAL ANALYSIS" style="text;html=1;strokeColor=#cccccc;fillColor=#ecf0f1;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;fontColor=#7f8c8d;spacingLeft=8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="372" width="760" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r7c" value="Per-user behavioural baseline (org-specific)" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="396" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r7e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="396" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r7d" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="396" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r7i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="396" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r8c" value="Identity-based sender verification" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="428" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r8e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="428" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r8d" value="Partial" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fffbea;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="428" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r8i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="428" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r9c" value="Vendor / supply chain impersonation detection" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="460" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r9e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="460" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r9d" value="Partial" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fffbea;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="460" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r9i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="460" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4" value="REMEDIATION &amp; RESPONSE" style="text;html=1;strokeColor=#cccccc;fillColor=#ecf0f1;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;fontColor=#7f8c8d;spacingLeft=8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="492" width="760" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r10c" value="Automated post-delivery message retraction" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="516" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r10e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="516" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r10d" value="Limited" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fffbea;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="516" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r10i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="516" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r11c" value="Continuous re-evaluation of delivered messages" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="548" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r11e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="548" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r11d" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="548" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r11i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="548" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r12c" value="SOC workflow integration (SIEM / SOAR)" style="text;html=1;strokeColor=#e0e0e0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="580" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r12e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fafafa;align=center;verticalAlign=middle;fontSize=13;fontColor=#cccccc;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="580" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r12d" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#eaf6ff;align=center;verticalAlign=middle;fontSize=16;fontColor=#27ae60;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="580" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r12i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="580" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s5" value="OUTBOUND &amp; EXTERNAL VISIBILITY" style="text;html=1;strokeColor=#cccccc;fillColor=#ecf0f1;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;fontColor=#7f8c8d;spacingLeft=8;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="612" width="760" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r13c" value="Outbound domain abuse / spoofing monitoring" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="636" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r13e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="636" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r13d" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="636" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r13i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="636" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r14c" value="External threat intelligence correlation" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;rounded=0;fontColor=#c0392b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="668" width="340" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r14e" value="—" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=13;fontColor=#e74c3c;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="668" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r14d" value="Partial" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fffbea;align=center;verticalAlign=middle;fontSize=10;fontColor=#e67e22;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="668" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="r14i" value="✔" style="text;html=1;strokeColor=#e0e0e0;fillColor=#fff8f0;align=center;verticalAlign=middle;fontSize=16;fontColor=#e67e22;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="668" width="140" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_title" value="Legend:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#444444;" vertex="1" parent="1">
+          <mxGeometry x="60" y="716" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="✔  Full coverage" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#27ae60;" vertex="1" parent="1">
+          <mxGeometry x="120" y="716" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Partial / Limited = Partial coverage" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#e67e22;" vertex="1" parent="1">
+          <mxGeometry x="270" y="716" width="240" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="—  Not covered" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="520" y="716" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Red row highlight = gap if ICES not renewed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#c0392b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="734" width="340" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
