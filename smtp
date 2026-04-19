@@ -1,0 +1,537 @@
+<mxGraphModel dx="3093" dy="4193" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="LEx83FIDWfh-u91xGSRo-1" connectable="0" parent="1" style="group" value="" vertex="1">
+      <mxGeometry height="1212" width="1520" x="40" y="16" as="geometry" />
+    </mxCell>
+    <mxCell id="title" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" value="Email Authentication — Outbound SMTP Flow &amp; Inbound SPF / DKIM / DMARC Checks" vertex="1">
+      <mxGeometry height="30" width="1500" x="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sub" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Left to right: a message is composed, signed, transmitted via SMTP, and then verified by the receiving server against DNS records." vertex="1">
+      <mxGeometry height="18" width="1500" x="20" y="30" as="geometry" />
+    </mxCell>
+    <mxCell id="lane1_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#0073a8;fillColor=#dbeeff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#0073a8;rounded=1;" value="SENDER" vertex="1">
+      <mxGeometry height="28" width="160" x="20" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="lane2_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#e67e22;fillColor=#fff3dc;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#e67e22;rounded=1;" value="SENDING MAIL SERVER" vertex="1">
+      <mxGeometry height="28" width="200" x="220" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="lane3_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#8e44ad;fillColor=#f5eaff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#8e44ad;rounded=1;" value="INTERNET (SMTP)" vertex="1">
+      <mxGeometry height="28" width="160" x="470" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="lane4_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#27ae60;fillColor=#e8f8ee;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#27ae60;rounded=1;" value="PUBLIC DNS" vertex="1">
+      <mxGeometry height="28" width="160" x="680" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="lane5_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#c0392b;fillColor=#fff0f0;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#c0392b;rounded=1;" value="RECEIVING MAIL SERVER" vertex="1">
+      <mxGeometry height="28" width="220" x="900" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="lane6_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#555555;fillColor=#f0f0f0;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#333333;rounded=1;" value="RECIPIENT" vertex="1">
+      <mxGeometry height="28" width="140" x="1180" y="56" as="geometry" />
+    </mxCell>
+    <mxCell id="bg1" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5faff;strokeColor=#d0e8f8;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="160" x="20" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="bg2" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffbf2;strokeColor=#f0d9a8;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="200" x="220" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="bg3" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdf5ff;strokeColor=#ddc8f0;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="160" x="470" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="bg4" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f2fbf5;strokeColor=#b8dfc4;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="160" x="680" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="bg5" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#f0c0c0;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="220" x="900" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="bg6" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#dddddd;opacity=50;" value="" vertex="1">
+      <mxGeometry height="1020" width="140" x="1180" y="84" as="geometry" />
+    </mxCell>
+    <mxCell id="secA_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=#2c3e50;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=8;rounded=1;" value="  ➤  OUTBOUND — Composing, Signing &amp; Sending via SMTP" vertex="1">
+      <mxGeometry height="26" width="1300" x="20" y="92" as="geometry" />
+    </mxCell>
+    <mxCell id="a1" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" value="&lt;b&gt;User composes email&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;From: alice@example.com&lt;br&gt;To: bob@receiver.com&lt;br&gt;Subject: Hello&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="144" x="28" y="132" as="geometry" />
+    </mxCell>
+    <mxCell id="a2" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;fontSize=11;align=center;" value="&lt;b&gt;SMTP Submission&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Client submits to mail&lt;br&gt;server on port 587&lt;br&gt;(STARTTLS + AUTH)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="184" x="228" y="132" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_a1_a2" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;fontColor=#0073a8;fontSize=9;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="a2" value="submit">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="a3" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" value="&lt;b&gt;Server prepares outbound message&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;① Sets envelope MAIL FROM&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;font style=&#39;font-family:monospace&#39;&gt;MAIL FROM: &amp;lt;alice@example.com&amp;gt;&lt;/font&gt;&lt;br&gt;② Hashes headers + body&lt;br&gt;③ Signs hash with &lt;b&gt;DKIM private key&lt;/b&gt;&lt;br&gt;④ Adds &lt;b&gt;DKIM-Signature header&lt;/b&gt; to email&lt;/font&gt;" vertex="1">
+      <mxGeometry height="120" width="184" x="228" y="234" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_a2_a3" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="a3" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_privkey" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;fontSize=10;align=center;dashed=1;" value="&lt;b&gt;🔒 DKIM Private Key&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stored securely on the&lt;br&gt;sending mail server.&lt;br&gt;Never published.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="66" width="184" x="228" y="380" as="geometry" />
+    </mxCell>
+    <mxCell id="a4" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=center;" value="&lt;b&gt;SMTP Relay&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Server connects to&lt;br&gt;receiver.com MX on port 25&lt;br&gt;(EHLO, MAIL FROM, RCPT TO,&lt;br&gt;DATA, QUIT)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="90" width="144" x="478" y="234" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_a3_a4" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=2;fontColor=#e67e22;fontSize=9;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="a4" value="relay">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_mx" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DNS: MX Lookup&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;MX receiver.com&lt;br&gt;→ mail.receiver.com&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Finds recipient mail server&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="144" x="688" y="234" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_a4_mx" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="dns_mx" value="MX lookup">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="a5" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=4;" value="&lt;b&gt;Email arrives at receiving server&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Full message received including:&lt;br&gt;• Envelope (MAIL FROM, RCPT TO)&lt;br&gt;• Headers (From:, DKIM-Signature, etc.)&lt;br&gt;• Body&lt;/font&gt;" vertex="1">
+      <mxGeometry height="100" width="204" x="908" y="224" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_a4_a5" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;fontColor=#8e44ad;fontSize=9;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="a5" value="delivers email">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="secB_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=#2c3e50;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=8;rounded=1;" value="  ➤  INBOUND — Authentication Checks Performed by Receiving Server" vertex="1">
+      <mxGeometry height="26" width="1300" x="20" y="456" as="geometry" />
+    </mxCell>
+    <mxCell id="spf_lbl" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#0073a8;fillColor=#dbeeff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#0073a8;rounded=1;" value="SPF" vertex="1">
+      <mxGeometry height="22" width="60" x="20" y="492" as="geometry" />
+    </mxCell>
+    <mxCell id="spf1" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" value="&lt;b&gt;SPF Check&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Extract domain from&lt;br&gt;envelope MAIL FROM:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;example.com&lt;/font&gt;&lt;br&gt;Note the sending IP:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;203.0.113.10&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="100" width="204" x="908" y="490" as="geometry" />
+    </mxCell>
+    <mxCell id="spf_dns" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DNS: SPF Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;TXT example.com&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Returns:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;v=spf1&lt;br&gt;include:spf.protection&lt;br&gt;.outlook.com ~all&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="110" width="144" x="688" y="482" as="geometry" />
+    </mxCell>
+    <mxCell id="spf_result" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" value="&lt;b&gt;SPF Result&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Is sending IP listed&lt;br&gt;in the SPF record?&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#27ae60&#39;&gt;✔ PASS: IP is listed&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#c0392b&#39;&gt;✖ FAIL: IP not listed&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px;color:#888&#39;&gt;~all=softfail, -all=hardfail&lt;/font&gt;" vertex="1">
+      <mxGeometry height="96" width="204" x="908" y="608" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_spf1_dns" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="spf1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="spf_dns" value="lookup SPF record">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_spfdns_res" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="spf1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=1;fontColor=#c0392b;fontSize=9;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="spf_result" value="compare IP">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="spf_note" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#f0c080;fillColor=#fffbea;align=left;verticalAlign=middle;fontSize=10;fontColor=#7a5500;rounded=1;spacingLeft=8;" value="⚠  SPF checks the &lt;b&gt;envelope MAIL FROM&lt;/b&gt;, not the visible From: header. Breaks on forwarding." vertex="1">
+      <mxGeometry height="24" width="880" x="20" y="720" as="geometry" />
+    </mxCell>
+    <mxCell id="dkim_lbl" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#27ae60;fillColor=#e8f8ee;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#27ae60;rounded=1;" value="DKIM" vertex="1">
+      <mxGeometry height="22" width="60" x="20" y="762" as="geometry" />
+    </mxCell>
+    <mxCell id="dkim1" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" value="&lt;b&gt;DKIM Check — Step 1&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Read DKIM-Signature header:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;d=example.com&lt;br&gt;s=selector1&lt;br&gt;b=&amp;lt;signature&amp;gt;&lt;br&gt;bh=&amp;lt;body hash&amp;gt;&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="100" width="204" x="908" y="756" as="geometry" />
+    </mxCell>
+    <mxCell id="dkim_dns" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DNS: DKIM Public Key&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;selector1._domainkey&lt;br&gt;.example.com&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Returns public key (p=...)&lt;br&gt;used to decrypt signature&lt;/font&gt;" vertex="1">
+      <mxGeometry height="90" width="144" x="688" y="756" as="geometry" />
+    </mxCell>
+    <mxCell id="dkim2" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" value="&lt;b&gt;DKIM Check — Step 2&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;① Decrypt b= with public key&lt;br&gt;&amp;nbsp;&amp;nbsp;→ reveals original hash&lt;br&gt;② Recalculate hash of&lt;br&gt;&amp;nbsp;&amp;nbsp;received headers + body&lt;br&gt;③ Compare both hashes&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#27ae60&#39;&gt;✔ PASS: hashes match&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#c0392b&#39;&gt;✖ FAIL: message altered&lt;/font&gt;" vertex="1">
+      <mxGeometry height="130" width="204" x="908" y="876" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dkim1_dns" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dkim1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="dkim_dns" value="fetch public key">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dkim1_2" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dkim1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=1;fontColor=#c0392b;fontSize=9;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dkim2" value="verify">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="dkim_note" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#a8d5b5;fillColor=#e8f8ee;align=left;verticalAlign=middle;fontSize=10;fontColor=#1a5c30;rounded=1;spacingLeft=8;" value="✔  DKIM validates message integrity. The signature travels with the email so it survives forwarding — unlike SPF." vertex="1">
+      <mxGeometry height="24" width="880" x="20" y="1024" as="geometry" />
+    </mxCell>
+    <mxCell id="dmarc_lbl" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=#8e44ad;fillColor=#f5eaff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#8e44ad;rounded=1;" value="DMARC" vertex="1">
+      <mxGeometry height="22" width="60" x="20" y="1066" as="geometry" />
+    </mxCell>
+    <mxCell id="dmarc1" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=4;" value="&lt;b&gt;DMARC Check — Alignment&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Visible From: header domain:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;From: alice@example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;Must align with domain that&lt;br&gt;passed SPF or DKIM:&lt;br&gt;&lt;b&gt;SPF aligned?&lt;/b&gt; MAIL FROM domain&lt;br&gt;= From: domain?&lt;br&gt;&lt;b&gt;DKIM aligned?&lt;/b&gt; d= domain&lt;br&gt;= From: domain?&lt;/font&gt;" vertex="1">
+      <mxGeometry height="150" width="204" x="908" y="1060" as="geometry" />
+    </mxCell>
+    <mxCell id="dmarc_dns" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DNS: DMARC Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;_dmarc.example.com&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Returns policy:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;v=DMARC1;&lt;br&gt;p=reject;&lt;br&gt;rua=mailto:dmarc&lt;br&gt;@example.com&lt;/font&gt;&lt;br&gt;&lt;b&gt;p=none&lt;/b&gt; monitor only&lt;br&gt;&lt;b&gt;p=quarantine&lt;/b&gt; → spam&lt;br&gt;&lt;b&gt;p=reject&lt;/b&gt; → block&lt;/font&gt;" vertex="1">
+      <mxGeometry height="160" width="144" x="688" y="1052" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dmarc1_dns" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dmarc1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="dmarc_dns" value="fetch DMARC policy">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="disp_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=#2c3e50;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;rounded=1;" value="FINAL DISPOSITION" vertex="1">
+      <mxGeometry height="22" width="124" x="1188" y="492" as="geometry" />
+    </mxCell>
+    <mxCell id="disp_pass" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=center;fontColor=#1a5c30;" value="&lt;font style=&#39;font-size:13px&#39;&gt;📥&lt;/font&gt;&lt;br&gt;&lt;b&gt;DELIVER&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;DMARC PASS&lt;br&gt;→ Inbox&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="112" x="1192" y="530" as="geometry" />
+    </mxCell>
+    <mxCell id="disp_quar" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;strokeWidth=2;fontSize=11;align=center;fontColor=#7a4000;" value="&lt;font style=&#39;font-size:13px&#39;&gt;⚠️&lt;/font&gt;&lt;br&gt;&lt;b&gt;QUARANTINE&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;p=quarantine&lt;br&gt;→ Junk folder&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="112" x="1192" y="620" as="geometry" />
+    </mxCell>
+    <mxCell id="disp_rej" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;strokeWidth=2;fontSize=11;align=center;fontColor=#7a0000;" value="&lt;font style=&#39;font-size:13px&#39;&gt;🚫&lt;/font&gt;&lt;br&gt;&lt;b&gt;REJECT&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;p=reject&lt;br&gt;→ Blocked&lt;/font&gt;" vertex="1">
+      <mxGeometry height="72" width="112" x="1192" y="710" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dmarc_pass" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dmarc1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;" target="disp_pass" value="">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1135" y="1135" />
+          <mxPoint x="1135" y="566" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_dmarc_quar" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dmarc1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=2;" target="disp_quar" value="">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1140" y="1135" />
+          <mxPoint x="1140" y="656" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_dmarc_rej" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dmarc1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" target="disp_rej" value="">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1145" y="1135" />
+          <mxPoint x="1145" y="746" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_arrive_spf" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=9;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="spf1" value="triggers checks">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_spf_dkim" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="spf_result" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=9;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dkim1" value="then">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dkim_dmarc" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dkim2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=9;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dmarc1" value="then">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_setup_hdr" parent="LEx83FIDWfh-u91xGSRo-1" style="text;html=1;strokeColor=none;fillColor=#27ae60;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;rounded=1;" value="DNS Records Published by Sending Domain (one-time setup)" vertex="1">
+      <mxGeometry height="22" width="144" x="688" y="464" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_spf_pub" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;SPF TXT Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px;font-family:monospace&#39;&gt;example.com TXT&lt;br&gt;v=spf1 include:...&lt;br&gt;~all&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Authorized sending IPs&lt;/font&gt;" vertex="1">
+      <mxGeometry height="82" width="144" x="688" y="132" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_dkim_pub" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DKIM TXT Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px;font-family:monospace&#39;&gt;selector1._domainkey&lt;br&gt;.example.com TXT&lt;br&gt;v=DKIM1; p=&amp;lt;pubkey&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Public key for verification&lt;/font&gt;" vertex="1">
+      <mxGeometry height="88" width="144" x="688" y="324" as="geometry" />
+    </mxCell>
+    <mxCell id="dns_dmarc_pub" parent="LEx83FIDWfh-u91xGSRo-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=10;align=center;" value="&lt;b&gt;DMARC TXT Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px;font-family:monospace&#39;&gt;_dmarc.example.com&lt;br&gt;v=DMARC1; p=reject;&lt;br&gt;rua=mailto:...&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Policy + reporting&lt;/font&gt;" vertex="1">
+      <mxGeometry height="86" width="144" x="688" y="424" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_pub_spf" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="dns_spf_pub" value="publishes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="320" y="168" />
+          <mxPoint x="760" y="168" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_pub_dkim" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dns_privkey" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="dns_dkim_pub" value="publishes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="412" y="368" />
+          <mxPoint x="760" y="368" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_pub_dmarc" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dns_privkey" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="dns_dmarc_pub" value="publishes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="412" y="424" />
+          <mxPoint x="760" y="424" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arr_report" edge="1" parent="LEx83FIDWfh-u91xGSRo-1" source="dmarc1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=1;fontColor=#8e44ad;fontSize=9;fontStyle=2;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="a1" value="Aggregate reports (rua=)&lt;br&gt;sent periodically to sender">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="860" y="1135" />
+          <mxPoint y="1135" />
+          <mxPoint y="168" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" value="Email Authentication — Full Flow: Outbound SMTP + Inbound SPF / DKIM / DMARC Checks" vertex="1">
+      <mxGeometry height="34" width="2060" x="-40" y="1924" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Read left to right. Outbound: how the message is composed, signed and sent. Inbound: how the receiving server independently checks SPF, DKIM and DMARC against DNS before deciding what to do with the message." vertex="1">
+      <mxGeometry height="18" width="2060" x="-40" y="1958" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-4" parent="1" style="text;html=1;strokeColor=none;fillColor=#1a3a5c;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#ffffff;spacingLeft=12;rounded=1;" value="PART 1 — OUTBOUND: Composing, Signing and Sending via SMTP" vertex="1">
+      <mxGeometry height="30" width="2060" x="-40" y="1984" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=center;verticalAlign=top;spacingTop=6;" value="&lt;b&gt;① User Composes Email&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Mail client (Outlook/etc.)&lt;br&gt;&lt;br&gt;From: alice@example.com&lt;br&gt;To: bob@receiver.com&lt;br&gt;Subject: Hello&lt;br&gt;Body: ...&lt;/font&gt;" vertex="1">
+      <mxGeometry height="130" width="180" x="-40" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=center;verticalAlign=top;spacingTop=6;" value="&lt;b&gt;② SMTP Submission&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Port 587 (STARTTLS)&lt;br&gt;or Port 465 (SMTPS)&lt;br&gt;&lt;br&gt;Client authenticates&lt;br&gt;to sending mail server&lt;br&gt;(username + password)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="130" width="180" x="190" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;③ Sending Mail Server&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;(M365 / Exchange / Postfix)&lt;br&gt;&lt;br&gt;&lt;b&gt;Sets envelope:&lt;/b&gt;&lt;br&gt;MAIL FROM: alice@example.com&lt;br&gt;&lt;br&gt;&lt;b&gt;DKIM Signing:&lt;/b&gt;&lt;br&gt;① Hash selected headers + body&lt;br&gt;② Encrypt hash with private key&lt;br&gt;③ Add DKIM-Signature header:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;v=1; a=rsa-sha256;&lt;br&gt;d=example.com; s=sel1;&lt;br&gt;h=from:to:subject;&lt;br&gt;bh=&amp;lt;bodyhash&amp;gt;;&lt;br&gt;b=&amp;lt;signature&amp;gt;&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="230" width="230" x="420" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3dc;strokeColor=#e67e22;strokeWidth=1;fontSize=10;align=center;dashed=1;" value="&lt;b&gt;🔒 DKIM Private Key&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Stored on mail server only.&lt;br&gt;Never shared or published.&lt;br&gt;Used to sign outbound mail.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="70" width="230" x="420" y="2280" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=center;verticalAlign=top;spacingTop=6;" value="&lt;b&gt;④ DNS: MX Lookup&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Before sending, server&lt;br&gt;queries DNS to find the&lt;br&gt;recipient mail server:&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;MX receiver.com&lt;br&gt;→ mail.receiver.com&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="140" width="190" x="700" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;⑤ SMTP Relay — Port 25&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Sending server opens TCP&lt;br&gt;connection to recipient MX.&lt;br&gt;&lt;br&gt;SMTP dialogue:&lt;br&gt;EHLO example.com&lt;br&gt;MAIL FROM: alice@example.com&lt;br&gt;RCPT TO: bob@receiver.com&lt;br&gt;DATA (headers + body)&lt;br&gt;QUIT&lt;br&gt;&lt;br&gt;Full signed message transmitted.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="210" width="230" x="940" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;⑥ Email Arrives at&lt;br&gt;Receiving Server&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Full message received:&lt;br&gt;&lt;br&gt;• Envelope MAIL FROM&lt;br&gt;• Sending IP address&lt;br&gt;• From: header&lt;br&gt;• DKIM-Signature header&lt;br&gt;• All other headers&lt;br&gt;• Body&lt;br&gt;&lt;br&gt;Authentication checks&lt;br&gt;now begin ↓&lt;/font&gt;" vertex="1">
+      <mxGeometry height="230" width="210" x="1220" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-12" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;fontColor=#0073a8;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-6" value="port 587">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-13" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;fontColor=#0073a8;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-7" value="authenticated">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-14" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=1;fontColor=#e67e22;fontSize=9;fontStyle=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-8" value="uses">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-15" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-9" value="MX lookup">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-16" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;fontColor=#8e44ad;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-10" value="relay to MX">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-17" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;fontColor=#c0392b;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-11" value="delivers signed email">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-18" parent="1" style="text;html=1;strokeColor=none;fillColor=#1a5c30;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;spacingLeft=12;rounded=1;" value="SENDER&#39;S DNS RECORDS (published once by DNS admin — queried by receiving server during checks)" vertex="1">
+      <mxGeometry height="30" width="520" x="1500" y="1984" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;🌐 SPF Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;example.com TXT&lt;br&gt;v=spf1&lt;br&gt;include:spf.protection&lt;br&gt;.outlook.com ~all&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Lists all IP addresses and&lt;br&gt;mail servers authorised to&lt;br&gt;send email for this domain.&lt;br&gt;&lt;br&gt;&lt;b&gt;~all&lt;/b&gt; = softfail if not listed&lt;br&gt;&lt;b&gt;-all&lt;/b&gt; = hardfail if not listed&lt;/font&gt;" vertex="1">
+      <mxGeometry height="200" width="230" x="1500" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;🌐 DKIM Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;sel1._domainkey&lt;br&gt;.example.com TXT&lt;br&gt;v=DKIM1; k=rsa;&lt;br&gt;p=&amp;lt;PUBLIC KEY&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Contains the &lt;b&gt;public key&lt;/b&gt;&lt;br&gt;mathematically paired with&lt;br&gt;the private key on the server.&lt;br&gt;&lt;br&gt;Anyone can query this to&lt;br&gt;verify a DKIM signature.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="200" width="230" x="1750" y="2028" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;🌐 DMARC Record&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;font-family:monospace&#39;&gt;_dmarc.example.com TXT&lt;br&gt;v=DMARC1;&lt;br&gt;p=reject;&lt;br&gt;rua=mailto:dmarc&lt;br&gt;@example.com;&lt;br&gt;ruf=mailto:dmarc&lt;br&gt;@example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;&lt;b&gt;p=none&lt;/b&gt;: monitor, no action&lt;br&gt;&lt;b&gt;p=quarantine&lt;/b&gt;: send to junk&lt;br&gt;&lt;b&gt;p=reject&lt;/b&gt;: block message&lt;br&gt;&lt;b&gt;rua&lt;/b&gt;: aggregate report address&lt;br&gt;&lt;b&gt;ruf&lt;/b&gt;: forensic report address&lt;/font&gt;" vertex="1">
+      <mxGeometry height="240" width="230" x="1500" y="2250" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-22" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="LEx83FIDWfh-u91xGSRo-19" value="admin publishes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="535" y="1990" />
+          <mxPoint x="1615" y="1990" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-23" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-8" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;" target="LEx83FIDWfh-u91xGSRo-20" value="admin publishes">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="535" y="2360" />
+          <mxPoint x="1865" y="2360" />
+          <mxPoint x="1865" y="2228" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-24" parent="1" style="text;html=1;strokeColor=none;fillColor=#4a1a5c;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#ffffff;spacingLeft=12;rounded=1;" value="PART 2 — INBOUND: Authentication Checks Performed by Receiving Server (in sequence)" vertex="1">
+      <mxGeometry height="30" width="2060" x="-40" y="2390" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f8ff;strokeColor=#0073a8;strokeWidth=1;opacity=40;" value="" vertex="1">
+      <mxGeometry height="190" width="2060" x="-40" y="2432" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-26" parent="1" style="text;html=1;strokeColor=none;fillColor=#0073a8;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;rounded=1;" value="SPF CHECK" vertex="1">
+      <mxGeometry height="24" width="100" x="-40" y="2432" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;① Extract Envelope Sender&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Read the SMTP envelope:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;MAIL FROM:&lt;br&gt;alice@example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;Domain to check: &lt;b&gt;example.com&lt;/b&gt;&lt;br&gt;Sending IP: &lt;b&gt;203.0.113.10&lt;/b&gt;&lt;br&gt;&lt;br&gt;⚠ This is the envelope sender —&lt;br&gt;NOT the From: header&lt;/font&gt;" vertex="1">
+      <mxGeometry height="148" width="230" x="60" y="2464" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;② DNS Lookup&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Query:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;TXT example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;Returns SPF record listing&lt;br&gt;all authorised sending IPs&lt;br&gt;and mail servers&lt;/font&gt;" vertex="1">
+      <mxGeometry height="120" width="220" x="350" y="2464" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;③ Compare Sending IP&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Is IP 203.0.113.10 listed&lt;br&gt;in the SPF record?&lt;/font&gt;" vertex="1">
+      <mxGeometry height="80" width="200" x="630" y="2464" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;SPF Result&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#27ae60&#39;&gt;✔ PASS&lt;/font&gt;&lt;font style=&#39;font-size:10px;color:#27ae60&#39;&gt;: IP is listed&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#e67e22&#39;&gt;~ SOFTFAIL&lt;/font&gt;&lt;font style=&#39;font-size:10px;color:#e67e22&#39;&gt;: not listed (~all)&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#c0392b&#39;&gt;✖ FAIL&lt;/font&gt;&lt;font style=&#39;font-size:10px;color:#c0392b&#39;&gt;: not listed (-all)&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#888&#39;&gt;? NEUTRAL/NONE&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;color:#555&#39;&gt;Result passed to DMARC&lt;/font&gt;" vertex="1">
+      <mxGeometry height="148" width="220" x="890" y="2450" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-31" parent="1" style="text;html=1;strokeColor=#f0c080;fillColor=#fffbea;align=left;verticalAlign=middle;fontSize=10;fontColor=#7a5500;rounded=1;spacingLeft=8;" value="⚠ &lt;b&gt;SPF Limitation:&lt;/b&gt; Checks the &lt;b&gt;envelope MAIL FROM&lt;/b&gt; domain — not the visible From: header. When email is forwarded, the forwarding server&#39;s IP is not in the original SPF record, so SPF breaks. This is why SPF alone is not sufficient." vertex="1">
+      <mxGeometry height="26" width="1050" x="60" y="2622" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-32" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-28" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;fontStyle=2;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-19" value="DNS lookup">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1460" y="2524" />
+          <mxPoint x="1460" y="2128" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-33" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-27" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-28" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-34" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-28" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-29" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-35" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-29" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-30" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-36" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-11" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=10;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-27" value="triggers SPF">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1325" y="2370" />
+          <mxPoint x="40" y="2370" />
+          <mxPoint x="40" y="2538" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff4;strokeColor=#27ae60;strokeWidth=1;opacity=40;" value="" vertex="1">
+      <mxGeometry height="210" width="2060" x="-40" y="2670" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-38" parent="1" style="text;html=1;strokeColor=none;fillColor=#27ae60;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;rounded=1;" value="DKIM CHECK" vertex="1">
+      <mxGeometry height="24" width="100" x="-40" y="2670" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;① Read DKIM-Signature Header&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Extract fields from header:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;d=example.com&lt;br&gt;s=sel1&lt;br&gt;h=from:to:subject&lt;br&gt;bh=&amp;lt;body hash&amp;gt;&lt;br&gt;b=&amp;lt;signature&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;d= is the signing domain&lt;br&gt;s= is the selector&lt;br&gt;b= is the encrypted signature&lt;br&gt;bh= is the body hash&lt;/font&gt;" vertex="1">
+      <mxGeometry height="168" width="230" x="60" y="2704" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;② Fetch Public Key from DNS&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Construct lookup from d= and s=:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;sel1._domainkey&lt;br&gt;.example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;DNS returns public key (p=...)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="110" width="220" x="350" y="2704" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;③ Decrypt Signature&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Use public key to decrypt&lt;br&gt;the b= value.&lt;br&gt;&lt;br&gt;This reveals the &lt;b&gt;original hash&lt;/b&gt;&lt;br&gt;that the sender computed&lt;br&gt;when signing.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="120" width="210" x="630" y="2704" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;④ Recalculate Hash&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Independently hash the&lt;br&gt;received headers (listed in h=)&lt;br&gt;and body using same algorithm.&lt;br&gt;&lt;br&gt;This is what the hash&lt;br&gt;&lt;i&gt;should be&lt;/i&gt; if unmodified.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="120" width="210" x="900" y="2704" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;⑤ DKIM Result&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Compare decrypted hash&lt;br&gt;vs recalculated hash:&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#27ae60&#39;&gt;✔ PASS&lt;/font&gt;&lt;font style=&#39;font-size:10px;color:#555&#39;&gt;: hashes match&lt;br&gt;Message is intact and&lt;br&gt;signing domain vouches for it&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:11px;color:#c0392b&#39;&gt;✖ FAIL&lt;/font&gt;&lt;font style=&#39;font-size:10px;color:#555&#39;&gt;: hashes differ&lt;br&gt;Message was altered in transit&lt;br&gt;or signature is invalid&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px;color:#555&#39;&gt;Result passed to DMARC&lt;/font&gt;" vertex="1">
+      <mxGeometry height="190" width="220" x="1170" y="2692" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-44" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-40" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;fontStyle=2;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-20" value="fetch public key">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1470" y="2759" />
+          <mxPoint x="1470" y="2128" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-45" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-39" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-40" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-46" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-40" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-41" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-47" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-41" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-42" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-48" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-42" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-43" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-49" parent="1" style="text;html=1;strokeColor=#a8d5b5;fillColor=#e8f8ee;align=left;verticalAlign=middle;fontSize=10;fontColor=#1a5c30;rounded=1;spacingLeft=8;" value="✔ &lt;b&gt;DKIM survives forwarding&lt;/b&gt; because it is tied to the message content, not the sending IP. The signature travels with the email intact." vertex="1">
+      <mxGeometry height="24" width="1050" x="60" y="2888" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-50" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-30" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=10;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-39" value="then DKIM check">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1000" y="2658" />
+          <mxPoint x="40" y="2658" />
+          <mxPoint x="40" y="2788" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf5ff;strokeColor=#8e44ad;strokeWidth=1;opacity=40;" value="" vertex="1">
+      <mxGeometry height="240" width="2060" x="-40" y="2928" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-52" parent="1" style="text;html=1;strokeColor=none;fillColor=#8e44ad;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;rounded=1;" value="DMARC CHECK" vertex="1">
+      <mxGeometry height="24" width="100" x="-40" y="2928" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;① Fetch DMARC Policy&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Using the domain from the&lt;br&gt;visible &lt;b&gt;From: header&lt;/b&gt;:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;From: alice@example.com&lt;/font&gt;&lt;br&gt;Domain = &lt;b&gt;example.com&lt;/b&gt;&lt;br&gt;&lt;br&gt;Query DNS:&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;_dmarc.example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;Returns p= policy&lt;/font&gt;" vertex="1">
+      <mxGeometry height="180" width="230" x="60" y="2964" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;② SPF Alignment Check&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Does the domain in the&lt;br&gt;visible &lt;b&gt;From: header&lt;/b&gt; match&lt;br&gt;the domain that passed SPF&lt;br&gt;(the envelope MAIL FROM)?&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;From: alice@example.com&lt;br&gt;MAIL FROM: alice@example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;color:#27ae60&#39;&gt;✔ Match → SPF Aligned&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;color:#c0392b&#39;&gt;✖ No match → Not aligned&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="200" width="250" x="350" y="2952" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;③ DKIM Alignment Check&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Does the domain in the&lt;br&gt;visible &lt;b&gt;From: header&lt;/b&gt; match&lt;br&gt;the &lt;b&gt;d= domain&lt;/b&gt; in the&lt;br&gt;DKIM-Signature?&lt;br&gt;&lt;br&gt;&lt;font style=&#39;font-family:monospace&#39;&gt;From: alice@example.com&lt;br&gt;d=example.com&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&#39;color:#27ae60&#39;&gt;✔ Match → DKIM Aligned&lt;/font&gt;&lt;br&gt;&lt;font style=&#39;color:#c0392b&#39;&gt;✖ No match → Not aligned&lt;/font&gt;&lt;/font&gt;" vertex="1">
+      <mxGeometry height="200" width="250" x="660" y="2952" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;④ DMARC Decision&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;DMARC &lt;b&gt;PASSES&lt;/b&gt; if:&lt;br&gt;• &lt;b&gt;SPF passed AND aligned&lt;/b&gt;&lt;br&gt;OR&lt;br&gt;• &lt;b&gt;DKIM passed AND aligned&lt;/b&gt;&lt;br&gt;(at least one must satisfy both)&lt;br&gt;&lt;br&gt;DMARC &lt;b&gt;FAILS&lt;/b&gt; if:&lt;br&gt;• Neither SPF nor DKIM&lt;br&gt;&amp;nbsp;&amp;nbsp;passes with alignment&lt;br&gt;&lt;br&gt;This closes the gap where&lt;br&gt;SPF/DKIM pass but the&lt;br&gt;visible From: is spoofed.&lt;/font&gt;" vertex="1">
+      <mxGeometry height="210" width="250" x="970" y="2952" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;⑤ Apply Policy&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;Apply the p= value from DNS:&lt;br&gt;&lt;br&gt;&lt;b&gt;p=none:&lt;/b&gt;&lt;br&gt;Take no action. Monitor only.&lt;br&gt;Still sends reports.&lt;br&gt;&lt;br&gt;&lt;b&gt;p=quarantine:&lt;/b&gt;&lt;br&gt;Move to junk/spam folder.&lt;br&gt;&lt;br&gt;&lt;b&gt;p=reject:&lt;/b&gt;&lt;br&gt;Block and bounce the message.&lt;br&gt;&lt;br&gt;Reports sent to rua= address&lt;br&gt;(aggregate) and ruf= address&lt;br&gt;(forensic/per-message)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="210" width="230" x="1280" y="2952" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-58" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-53" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;fontStyle=2;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-21" value="fetch DMARC policy">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1480" y="3054" />
+          <mxPoint x="1480" y="2490" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-59" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-53" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-54" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-60" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-54" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-56" value="">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="955" y="3052" />
+          <mxPoint x="955" y="3015" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-61" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-55" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.6;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-56" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-62" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-56" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-57" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-63" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-43" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2c3e50;strokeWidth=2;fontColor=#2c3e50;fontSize=10;fontStyle=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-53" value="then DMARC check">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1280" y="2916" />
+          <mxPoint x="40" y="2916" />
+          <mxPoint x="40" y="3054" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-64" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-30" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=1;fontColor=#0073a8;fontSize=9;fontStyle=2;dashed=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-54" value="SPF result">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1110" y="2660" />
+          <mxPoint x="1110" y="2920" />
+          <mxPoint x="475" y="2920" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-65" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-43" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=1;fontColor=#27ae60;fontSize=9;fontStyle=2;dashed=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-55" value="DKIM result">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1390" y="2920" />
+          <mxPoint x="785" y="2920" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-66" parent="1" style="text;html=1;strokeColor=none;fillColor=#2c3e50;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;rounded=1;" value="FINAL DISPOSITION" vertex="1">
+      <mxGeometry height="24" width="180" x="1580" y="2952" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;fontSize=11;align=center;fontColor=#1a5c30;" value="📥&lt;br&gt;&lt;b&gt;DELIVER TO INBOX&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;DMARC PASS&lt;br&gt;(SPF or DKIM&lt;br&gt;passed + aligned)&lt;/font&gt;" vertex="1">
+      <mxGeometry height="90" width="160" x="1590" y="2986" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;strokeWidth=2;fontSize=11;align=center;fontColor=#7a4000;" value="⚠️&lt;br&gt;&lt;b&gt;JUNK / SPAM&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;DMARC FAIL&lt;br&gt;p=quarantine&lt;/font&gt;" vertex="1">
+      <mxGeometry height="80" width="160" x="1590" y="3088" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;strokeWidth=2;fontSize=11;align=center;fontColor=#7a0000;" value="🚫&lt;br&gt;&lt;b&gt;BLOCKED / REJECTED&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;DMARC FAIL&lt;br&gt;p=reject&lt;/font&gt;" vertex="1">
+      <mxGeometry height="80" width="160" x="1590" y="3180" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-70" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-57" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-67" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-71" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-57" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#e67e22;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-68" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-72" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-57" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-69" value="">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-73" edge="1" parent="1" source="LEx83FIDWfh-u91xGSRo-57" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#8e44ad;strokeWidth=1;fontColor=#8e44ad;fontSize=9;fontStyle=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="LEx83FIDWfh-u91xGSRo-5" value="Aggregate reports (rua=) sent&lt;br&gt;periodically back to domain owner">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1395" y="3280" />
+          <mxPoint x="50" y="3280" />
+          <mxPoint x="50" y="2158" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#cccccc;strokeWidth=1;" value="" vertex="1">
+      <mxGeometry height="130" width="2060" x="-40" y="3300" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-75" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#1a1a2e;spacingLeft=8;" value="SUMMARY — What Each Protocol Does and Does Not Do" vertex="1">
+      <mxGeometry height="24" width="500" x="-40" y="3300" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;&lt;font color=&#39;#0073a8&#39;&gt;SPF&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;✔ Verifies sending IP is authorised&lt;br&gt;✔ Checks envelope MAIL FROM domain&lt;br&gt;✖ Does NOT check From: header&lt;br&gt;✖ Breaks on forwarding&lt;br&gt;✖ Does not validate message content&lt;/font&gt;" vertex="1">
+      <mxGeometry height="96" width="290" x="-32" y="3328" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;&lt;font color=&#39;#27ae60&#39;&gt;DKIM&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;✔ Verifies message was not altered in transit&lt;br&gt;✔ Signing domain vouches for the message&lt;br&gt;✔ Survives forwarding&lt;br&gt;✖ Does NOT check From: header alone&lt;br&gt;✖ Requires DMARC to enforce alignment&lt;/font&gt;" vertex="1">
+      <mxGeometry height="96" width="320" x="278" y="3328" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eaff;strokeColor=#8e44ad;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;&lt;font color=&#39;#8e44ad&#39;&gt;DMARC&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;✔ Ties SPF and DKIM together&lt;br&gt;✔ Checks From: header alignment&lt;br&gt;✔ Enforces a policy (none/quarantine/reject)&lt;br&gt;✔ Provides aggregate + forensic reporting&lt;br&gt;✖ Requires SPF or DKIM to be set up first&lt;/font&gt;" vertex="1">
+      <mxGeometry height="96" width="330" x="618" y="3328" as="geometry" />
+    </mxCell>
+    <mxCell id="LEx83FIDWfh-u91xGSRo-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#555555;fontSize=11;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;" value="&lt;b&gt;Together&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:10px&#39;&gt;SPF alone: authorised server, wrong header possible&lt;br&gt;DKIM alone: intact message, wrong From: possible&lt;br&gt;DMARC alone: nothing — needs SPF or DKIM first&lt;br&gt;&lt;b&gt;All three together:&lt;/b&gt; authorised server + intact message&lt;br&gt;+ From: header verified = strongest defence&lt;/font&gt;" vertex="1">
+      <mxGeometry height="96" width="360" x="968" y="3328" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
