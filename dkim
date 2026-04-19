@@ -1,0 +1,223 @@
+<mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ── TITLE ── -->
+    <mxCell id="title" value="How DKIM Works" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="200" y="18" width="769" height="34" as="geometry" />
+    </mxCell>
+    <mxCell id="sub" value="DomainKeys Identified Mail — signing outbound mail and verifying inbound mail using a key pair" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="200" y="50" width="769" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════
+         TOP ROW: THREE ACTORS
+    ══════════════════════════════════════════ -->
+
+    <!-- ACTOR 1: Sending Org -->
+    <mxCell id="actor_send_bg" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="40" y="86" width="220" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_send_icon" value="🏢" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=30;" vertex="1" parent="1">
+      <mxGeometry x="40" y="90" width="60" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_send_txt" value="&lt;b&gt;Sending Organisation&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;IT / DNS Admin&lt;br&gt;example.com&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="100" y="94" width="150" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_send_sub" value="Holds the PRIVATE KEY" style="text;html=1;strokeColor=none;fillColor=#0073a8;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="52" y="170" width="196" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ACTOR 2: DNS -->
+    <mxCell id="actor_dns_bg" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="490" y="86" width="220" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_dns_icon" value="🌐" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=30;" vertex="1" parent="1">
+      <mxGeometry x="490" y="90" width="60" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_dns_txt" value="&lt;b&gt;Public DNS&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;selector1._domainkey&lt;br&gt;.example.com&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="550" y="94" width="150" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_dns_sub" value="Stores the PUBLIC KEY" style="text;html=1;strokeColor=none;fillColor=#27ae60;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="502" y="170" width="196" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ACTOR 3: Recipient -->
+    <mxCell id="actor_recv_bg" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="940" y="86" width="220" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_recv_icon" value="📨" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=30;" vertex="1" parent="1">
+      <mxGeometry x="940" y="90" width="60" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_recv_txt" value="&lt;b&gt;Receiving Server&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Recipient mail server&lt;br&gt;(M365 / Gmail / etc.)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="1000" y="94" width="150" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_recv_sub" value="Uses PUBLIC KEY to verify" style="text;html=1;strokeColor=none;fillColor=#c0392b;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="952" y="170" width="196" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════
+         STEP 0: KEY PAIR CONCEPT BOX
+    ══════════════════════════════════════════ -->
+    <mxCell id="keypair_bg" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#bbbbbb;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="40" y="226" width="370" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="keypair_hdr" value="🔑  The Key Pair" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="40" y="226" width="370" height="24" as="geometry" />
+    </mxCell>
+
+    <mxCell id="priv_key" value="🔒  PRIVATE KEY&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Secret — never leaves the mail server.&lt;br&gt;Used to &lt;b&gt;sign&lt;/b&gt; outgoing messages.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=center;" vertex="1" parent="1">
+      <mxGeometry x="52" y="254" width="165" height="72" as="geometry" />
+    </mxCell>
+
+    <mxCell id="pub_key" value="🔓  PUBLIC KEY&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Published in DNS.&lt;br&gt;Anyone can use it to &lt;b&gt;verify&lt;/b&gt; signatures.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=11;align=center;" vertex="1" parent="1">
+      <mxGeometry x="233" y="254" width="165" height="72" as="geometry" />
+    </mxCell>
+
+    <mxCell id="keypair_rel" value="mathematically linked pair" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#999999;strokeWidth=1;fontColor=#888888;fontSize=9;fontStyle=2;dashed=1;" edge="1" parent="1" source="priv_key" target="pub_key">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Org publishes public key to DNS -->
+    <mxCell id="arr_publish" value="&lt;b&gt;Admin publishes&lt;br&gt;public key to DNS&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;(one-time setup)&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_send_bg" target="actor_dns_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════
+         MAIN FLOW — STEPS 1–4
+    ══════════════════════════════════════════ -->
+
+    <!-- Step divider line -->
+    <mxCell id="divider" value="" style="endArrow=none;html=1;strokeColor=#dddddd;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry x="40" y="355" width="1120" height="10" as="geometry">
+        <Array as="points">
+          <mxPoint x="1160" y="360" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_hdr" value="WHEN AN EMAIL IS SENT →" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#aaaaaa;letterSpacing=2;" vertex="1" parent="1">
+      <mxGeometry x="40" y="360" width="300" height="18" as="geometry" />
+    </mxCell>
+
+    <!-- STEP 1 -->
+    <mxCell id="step1_num" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0073a8;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="40" y="392" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step1_box" value="&lt;b&gt;Mail server hashes the message&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Creates a fixed-length fingerprint (hash)&lt;br&gt;of the email headers + body.&lt;br&gt;Any change to the message — even one character —&lt;br&gt;produces a completely different hash.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="82" y="386" width="280" height="88" as="geometry" />
+    </mxCell>
+    <mxCell id="step1_icon" value="📧 → #a3f9b2c..." style="text;html=1;strokeColor=#0073a8;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#0073a8;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="82" y="480" width="280" height="28" as="geometry" />
+    </mxCell>
+
+    <!-- STEP 2 -->
+    <mxCell id="step2_num" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0073a8;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="400" y="392" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step2_box" value="&lt;b&gt;Private key encrypts the hash&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;The mail server uses the &lt;b&gt;private key&lt;/b&gt;&lt;br&gt;to encrypt the hash.&lt;br&gt;This encrypted hash becomes&lt;br&gt;the &lt;b&gt;DKIM signature&lt;/b&gt;.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="442" y="386" width="280" height="88" as="geometry" />
+    </mxCell>
+    <mxCell id="step2_icon" value="🔒 private key  +  hash  =  signature" style="text;html=1;strokeColor=#0073a8;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#0073a8;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="442" y="480" width="280" height="28" as="geometry" />
+    </mxCell>
+
+    <!-- STEP 3 -->
+    <mxCell id="step3_num" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0073a8;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="760" y="392" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step3_box" value="&lt;b&gt;Signature added to email header&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;The signature is embedded in the email&lt;br&gt;as a &lt;b&gt;DKIM-Signature header&lt;/b&gt;.&lt;br&gt;This travels with the email&lt;br&gt;to the recipient server.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeeff;strokeColor=#0073a8;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="802" y="386" width="280" height="88" as="geometry" />
+    </mxCell>
+    <mxCell id="step3_icon" value="DKIM-Signature: b=&lt;encrypted hash&gt;" style="text;html=1;strokeColor=#0073a8;fillColor=#f0f8ff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#0073a8;fontFamily=Courier New;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="802" y="480" width="280" height="28" as="geometry" />
+    </mxCell>
+
+    <!-- Arrows between steps 1-2-3 -->
+    <mxCell id="arr_12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step1_box" target="step2_box">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#0073a8;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step2_box" target="step3_box">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Email travels arrow -->
+    <mxCell id="arr_send" value="&lt;b&gt;email sent&lt;/b&gt;&lt;br&gt;(with DKIM-Signature header)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;fontColor=#c0392b;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step3_box" target="actor_recv_bg">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1100" y="430" />
+          <mxPoint x="1100" y="141" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════
+         VERIFICATION FLOW — STEPS 4 & 5
+    ══════════════════════════════════════════ -->
+
+    <mxCell id="flow_hdr2" value="WHEN THE EMAIL ARRIVES →" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#aaaaaa;letterSpacing=2;" vertex="1" parent="1">
+      <mxGeometry x="40" y="530" width="300" height="18" as="geometry" />
+    </mxCell>
+
+    <!-- STEP 4 -->
+    <mxCell id="step4_num" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="40" y="560" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step4_box" value="&lt;b&gt;Recipient fetches the public key from DNS&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Reads the DKIM-Signature header to find&lt;br&gt;the &lt;b&gt;selector&lt;/b&gt; (s=) and &lt;b&gt;domain&lt;/b&gt; (d=).&lt;br&gt;Queries DNS for the public key at:&lt;br&gt;&lt;font style='font-family:monospace'&gt;selector1._domainkey.example.com&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="82" y="554" width="310" height="95" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Recipient → DNS -->
+    <mxCell id="arr_dns_lookup" value="DNS lookup for public key" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#27ae60;strokeWidth=2;fontColor=#27ae60;fontSize=10;fontStyle=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step4_box" target="actor_dns_bg">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="600" y="601" />
+          <mxPoint x="600" y="141" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- STEP 5 -->
+    <mxCell id="step5_num" value="5" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="540" y="560" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step5_box" value="&lt;b&gt;Public key decrypts the signature&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#444'&gt;Uses the &lt;b&gt;public key&lt;/b&gt; to decrypt&lt;br&gt;the DKIM signature → reveals original hash.&lt;br&gt;Independently recalculates the hash&lt;br&gt;of the received message headers + body.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="582" y="554" width="310" height="95" as="geometry" />
+    </mxCell>
+    <mxCell id="step5_icon" value="🔓 public key decrypts signature  →  original hash" style="text;html=1;strokeColor=#c0392b;fillColor=#fff8f8;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#c0392b;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="582" y="654" width="310" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- STEP 6: Compare -->
+    <mxCell id="step6_num" value="6" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+      <mxGeometry x="940" y="560" width="32" height="32" as="geometry" />
+    </mxCell>
+    <mxCell id="step6_box" value="&lt;b&gt;Compare the two hashes&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Hash from signature = Hash of received message?&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style='font-size:12px;color:#27ae60'&gt;✔  MATCH  →  DKIM PASS&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;Message is authentic and unmodified&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style='font-size:12px;color:#c0392b'&gt;✖  NO MATCH  →  DKIM FAIL&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#555'&gt;Message was altered in transit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=center;" vertex="1" parent="1">
+      <mxGeometry x="982" y="548" width="178" height="160" as="geometry" />
+    </mxCell>
+
+    <!-- Arrows steps 4-5-6 -->
+    <mxCell id="arr_45" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step4_box" target="step5_box">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_56" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step5_box" target="step6_box">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════
+         BOTTOM: KEY FACTS
+    ══════════════════════════════════════════ -->
+    <mxCell id="fact1" value="&lt;b&gt;Why a key pair?&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;Only the private key can create a signature that the public key can verify. If you don't hold the private key, you cannot forge a valid DKIM signature for that domain.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbea;strokeColor=#e67e22;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="40" y="726" width="330" height="76" as="geometry" />
+    </mxCell>
+
+    <mxCell id="fact2" value="&lt;b&gt;Why does it survive forwarding?&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;DKIM is tied to the message content, not the sending IP. Forwarding servers pass the signature along untouched, so the recipient can still verify it — unlike SPF which checks the sending IP.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f8ee;strokeColor=#27ae60;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="390" y="726" width="330" height="76" as="geometry" />
+    </mxCell>
+
+    <mxCell id="fact3" value="&lt;b&gt;What DKIM does NOT do&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px'&gt;DKIM does not validate the visible From: header on its own. An attacker could sign a message with their own domain's private key while spoofing your From: header. DMARC alignment closes that gap.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0f0;strokeColor=#c0392b;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="740" y="726" width="330" height="76" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
