@@ -1,0 +1,6 @@
+If we rely on Defender alone, here is specifically what we lose.
+First — we lose organisation-specific threat detection. Defender uses global intelligence. Agari knows our people, our patterns, our vendors. It catches attacks that look completely clean to a global system but are anomalous for us specifically.
+Second — we lose automated post-delivery remediation. When a threat gets through, Agari retracts it from every mailbox automatically. Without it, that becomes a manual SOC process. Slower, more expensive, and a longer window of exposure.
+Third — we lose vendor impersonation detection. Some of our most targeted attacks come through trusted third-party relationships. Agari profiles those vendors. Without it, those attacks are significantly harder to detect.
+Fourth — we lose outbound domain monitoring. If an attacker is impersonating BDC to target our clients right now, Defender will not surface that. Agari will. Without it, we find out from a client complaint — not from our own monitoring.
+Each of these is an active threat category. None of them are covered by Defender Plan 2.”
